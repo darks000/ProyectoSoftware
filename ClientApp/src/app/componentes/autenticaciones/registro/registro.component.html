@@ -1,0 +1,133 @@
+
+<div class="panel panel-primary"
+style="width: auto; margin:auto; margin-top: auto; background-color: rgba(255, 255, 255, 0.8)">
+<div class="panel-heading" style="background-color: lightblue;color: white;">Registrar Mi Cuenta</div>
+<div class="panel-body">
+    <div class="row separar">
+        <div class="col-sm-12">
+            <hr class="bg-info">
+            <div class="alert alert-info">
+                <strong>¡Informacion!</strong> ¡Su nombre de usuario sera su identificacion!
+            </div>
+            <div class="alert alert-warning">
+                <strong>¡Alerta!</strong> Todos los campos son obligatorios!
+            </div>
+
+            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            
+            <div class="row separar">
+                <div class="col-sm-2">
+                    <label>Identificacion:</label>
+                </div>
+                <div class="col-sm-4">
+                    <input type="text" formControlName="Identificacion" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Identificacion.errors }" />
+                    <div *ngIf="submitted && f.Identificacion.errors" class="invalid-feedback">
+                      <div *ngIf="f.Identificacion.errors.required">La identificacion es requerida</div>
+                      <div *ngIf="f.Identificacion.errors.minlength">Identificacion requiere minimo 6 caracteres</div>
+                    </div>
+                </div>
+
+                <div class="col-sm-2">
+                    <label>Sexo:</label>
+                </div>
+                <div class="col-sm-4">
+                    <select formControlName="Sexo" class="form-control">
+                        <option value="Masculino">Masculino</option>
+                        <option value="Femenino">Femenino</option>
+                    </select>
+                </div>
+
+            </div>
+            <div class="row separar">
+
+                <div class="col-sm-2">
+                    <label>Apellido:</label>
+                </div>
+
+                <div class="col-sm-4">
+                    <input type="text" formControlName="Apellido" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Apellido.errors }" />
+                    <div *ngIf="submitted && f.Apellido.errors" class="invalid-feedback">
+                      <div *ngIf="f.Apellido.errors.required">El apellido es requerido</div>
+                    </div>
+                </div>
+
+
+                <div class="col-sm-2">
+                    <label>Nombre:</label>
+                </div>
+
+                <div class="col-sm-4">
+                    <input type="text" formControlName="Nombre" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Nombre.errors }" />
+                    <div *ngIf="submitted && f.Nombre.errors" class="invalid-feedback">
+                    <div *ngIf="f.Nombre.errors.required">El nombre es requerido</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row separar">
+
+                <div class="col-sm-2">
+                    <label>Direccion:</label>
+                </div>
+
+                <div class="col-sm-4">
+                        <input type="text" formControlName="Direccion" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Direccion.errors }" />
+                        <div *ngIf="submitted && f.Direccion.errors" class="invalid-feedback">
+                        <div *ngIf="f.Direccion.errors.required">la Direccion es requerido</div>
+                        </div>
+                </div>
+
+                <div class="col-sm-2">
+                    <label>Telefono:</label>
+                </div>
+
+                <div class="col-sm-4">
+                        <input type="text" formControlName="Telefono" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Telefono.errors }" />
+                        <div *ngIf="submitted && f.Telefono.errors" class="invalid-feedback">
+                        <div *ngIf="f.Telefono.errors.required">El Telefono es requerido</div>
+                        </div>
+                </div>
+
+                
+            </div>
+
+            <div class="row separar">
+
+                <div class="col-sm-2">
+                    <label>Email:</label>
+                </div>
+
+                <div class="col-sm-4">
+                        <input type="text" formControlName="Email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Email.errors }" />
+                        <div *ngIf="submitted && f.Email.errors" class="invalid-feedback">
+                        <div *ngIf="f.Email.errors.required">El Email es requerido</div>
+                        </div>
+                </div>
+
+                <div class="col-sm-2">
+                    <label>Contraseña:</label>
+                </div>
+
+                <div class="col-sm-4">
+                        <input type="password" formControlName="Password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Password.errors }" />
+                        <div *ngIf="submitted && f.Password.errors" class="invalid-feedback">
+                        <div *ngIf="f.Password.errors.required">La Password es requerido</div>
+                        </div>
+                </div>
+
+                
+            </div>
+            <div class="row botonesayuda">
+                <div class="col-sm-12">
+                        <button class="btn btn-success mr-1" >REGISTRAR</button>
+                        <button class="btn btn-secondary" type="reset" (click)="onReset()">LIMPIAR</button>
+                </div>
+            </div>
+
+        </form>
+        <h4 style="color: #5e9ca0;"><span style="color: #000000;">&iquest;Ya estas registrado?</span> &nbsp;<span style="text-decoration: underline; color: #00ff00;" routerLink="/logear">Click Aca!</span></h4>
+        </div>
+    </div>
+</div>
+</div>

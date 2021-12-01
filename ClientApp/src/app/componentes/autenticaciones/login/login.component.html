@@ -1,0 +1,48 @@
+<div class="panel panel-primary"
+        style="width: 50%; margin:auto; margin-top: auto; background-color: rgba(255, 255, 255, 0.8)">
+        <div class="panel-heading" style="background-color: blue; color: white;">Gestion de Usuario</div>
+        <div class="panel-body">
+            <div class="row separar">
+                <div class="col-sm-12">
+                    <h1 class="textomod">Login</h1>
+                    <hr class="bg-info">
+                    <div class="alert alert-warning">
+                        <strong>¡Hola!</strong> Registrate o Inicia seccion!
+                    </div>
+                    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                    <div class="row separar panel-heading">
+                        <div class="col-sm-12">
+                            <label>Usuario:</label>
+                        </div>
+                        <div class="col-sm-12">
+                                <input [(ngModel)]="logear.username" formControlName="username" (blur)="get()" class="form-control"
+                                [ngClass]="{ 'is-invalid': submitted && f.username.errors }" placeholder="Usuario"
+                                type="text" />
+                                <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                                        <div *ngIf="f.username.errors.required">Usuario requerido</div>
+                                </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <label>Contraseña:</label>
+                        </div>
+                        <div class="col-sm-12">
+                                <input [(ngModel)]="logear.contra" formControlName="contra" (blur)="get()" class="form-control"
+                                [ngClass]="{ 'is-invalid': submitted && f.contra.errors }" placeholder="Contraseña"
+                                type="password" />
+                                <div *ngIf="submitted && f.contra.errors" class="invalid-feedback">
+                                        <div *ngIf="f.contra.errors.required">Contraseña requerida</div>
+                                </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <h4 style="color: #5e9ca0;"><span style="color: #000000;">&iquest;No tienes una cuenta?</span> &nbsp;<span style="text-decoration: underline; color: #00ff00;" routerLink="/registrarse">Click Aca!</span></h4>                    <hr>
+                    <div class="row botonesayuda">
+                        <div class="col-sm-12">
+                            <button class="btn btn-success mr-2" >Logear</button>
+                        </div>
+                    </div>
+                  </form>
+                </div>
+            </div>
+        </div>
+    </div>

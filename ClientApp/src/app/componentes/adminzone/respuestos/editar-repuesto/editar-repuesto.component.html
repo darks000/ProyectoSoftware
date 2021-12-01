@@ -1,0 +1,66 @@
+
+<div class="panel panel-primary"
+style="width: auto; margin:auto; margin-top: auto; background-color: rgba(255, 255, 255, 0.8)">
+<div class="panel-heading" style="background-color: lightblue;color: white;">Gestion de Repuestos</div>
+<div class="panel-body">
+        <div *ngIf="repuesto">  
+    <div class="row separar">
+        <div class="col-sm-12">
+            <hr class="bg-info">          
+
+            <div class="row separar">
+
+                <div class="col-sm-2">
+                    <label>Codigo Repuesto:</label>
+                </div>
+
+                <div class="col-sm-4">
+                    <input [(ngModel)]="repuesto.codigoRepuesto" readonly="readonly" class="form-control" placeholder="digite codigo Repuesto"
+                    type="text" />
+            </div>
+
+                <div class="col-sm-2">
+                    <label>Nombre Repuesto:</label>
+                </div>
+
+                <div class="col-sm-4">
+                        <input [(ngModel)]="repuesto.nombrRepuesto" class="form-control" placeholder="digite nombre Repuesto"
+                        type="text" />
+                </div>
+
+            </div>
+            <div class="row separar">
+
+                    <div class="col-sm-2">
+                        <label>Descripcion Repuesto:</label>
+                    </div>
+
+                    <div class="col-sm-4">
+                            <textarea [(ngModel)]="repuesto.descripcionRepuesto" rows="10" cols="40" class="form-control"></textarea>
+                    </div>
+
+                    <div class="col-sm-2">
+                        <label>Valor Repuesto:</label>
+                    </div>
+
+                    <div class="col-sm-4">
+                            <input [(ngModel)]="repuesto.valorRepuesto" class="form-control" placeholder="digite valor Repuesto"
+                            type="text" />
+                    </div>
+
+            </div>
+
+            <div class="row botonesayuda">
+                <div class="col-sm-12">
+                        <button class="btn btn-success mr-1" (click)="update()" >Actualizar</button>
+                        <button class="btn btn-danger mr-1" routerLink="/misrepuestos" (click)="delete()" >Eliminar</button>
+                        <button class="btn btn-secondary" routerLink="/misrepuestos">Volver</button>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    </div>
+</div>
+</div>

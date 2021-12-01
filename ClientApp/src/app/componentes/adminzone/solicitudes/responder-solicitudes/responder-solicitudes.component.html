@@ -1,0 +1,127 @@
+<div class="panel panel-primary"
+style="width: auto; margin:auto; margin-top: auto; background-color: rgba(255, 255, 255, 0.8)">
+<div class="panel-heading" style="background-color: lightblue;color: white;">Gestion de Solicitudes</div>
+<div class="panel-body">
+    <div class="row separar">
+        
+        <div class="col-sm-12">
+            <hr class="bg-info">
+            <div class="alert alert-warning">
+                <strong>¡Alerta!</strong> Revise los detalles y ajuste el precio total de la cotizacion, recuerde tambien cambiar el estado despues de revisar esta solicitud (Debe asignar a COTIZACION AJUSTADA), si es necesario asigne el mecanico enseguida, cambiar estado a (EN MANTENIMIENTO)!
+            </div>
+            <div *ngIf="cotizacion">   
+            <div class="row separar">
+                <div class="col-sm-2">
+                        <label>Codigo de Cotizacion:</label>
+                </div>
+                <div class="col-sm-4">
+                        <input [(ngModel)]="cotizacion.codigoCotizacion" readonly="readonly" class="form-control" placeholder="digite titulo"
+                        type="text" />
+                </div>
+
+                <div class="col-sm-2">
+                    <label>Cambiar Estado:</label>
+                </div>
+                <div class="col-sm-4">
+                        <select [(ngModel)]="cotizacion.estado" class="form-control">
+                                <option value="EN COTIZACION">EN COTIZACION</option>
+                                <option value="COTIZACION AJUSTADA">COTIZACION AJUSTADA</option>
+                                <option value="COTIZACION CANCELADA">COTIZACION CANCELADA</option>
+                                <option value="EN MANTENIMIENTO">EN MANTENIMIENTO</option>
+                                <option value="SOLICITUD FINALIZADA">SOLICITUD FINALIZADA</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="row separar">
+                <div class="col-sm-12">
+                    <div style="overflow-x:auto;">
+                        <table class='table table-striped' *ngIf='detalleCotizaciones && detalleCotizaciones.length'>
+                            <thead>
+                                <tr>
+                                <tr>
+                                    <th>#</th>           
+                                    <th>TIPO DE SERVICIO</th>
+                                    <th>VALOR DE SERVICIO</th>
+                                    <th>DESCRIPCION</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let detalleCotizacion of detalleCotizaciones | filtroDetalles:searchText; index as i">                
+                                    <th scope="row">{{ i + 1 }}</th>
+                                    <td>{{detalleCotizacion.codigoServicio}}</td>
+                                    <td>{{detalleCotizacion.valorServicio}}</td>
+                                    <td>{{detalleCotizacion.descripcion}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="alert alert-info">
+                <strong>¡Informacion!</strong> ¡Revise los detalles y ajuste el precio que se gastara realmente!
+            </div>
+            <div class="row separar">
+                <div class="col-sm-2">
+                    <label>Valor Aproximado:</label>
+                </div>
+                <div class="col-sm-4">
+                    <input [(ngModel)]="cotizacion.valorAproximado" readonly="readonly" class="form-control" placeholder="digite valor"
+                    type="number" />
+                </div>
+
+                <div class="col-sm-2">
+                    <label>Valor Ajustado:</label>
+                </div>
+                <div class="col-sm-4">
+                    <input [(ngModel)]="cotizacion.valorFinal" class="form-control" placeholder="digite valor"
+                    type="number" />
+                </div>
+
+            </div>
+            <div class="alert alert-info">
+                <strong>¡Informacion!</strong> ¡En este espacio se mantendra informado al cliente sobre el proceso de su solicitud, reparaciones y arreglos a su vehiculo!
+            </div>
+            <div class="row separar">
+                <div class="col-sm-2">
+                    <label>Comentario a cliente:</label>
+                </div>
+
+                <div class="col-sm-10">
+                        <textarea [(ngModel)]="cotizacion.comentario" rows="10" cols="40" class="form-control"></textarea>
+                </div>
+            </div>
+
+            <div class="row separar">
+            
+                <div class="col-sm-2">
+                    <label>PMecanico:</label>
+                </div>
+
+                <div class="col-sm-4">
+                    <input [(ngModel)]="cotizacion.idMecanico" readonly="readonly" class="form-control" (blur)="buscarMecanico()" (dblclick)="openModalMecanico()" placeholder="digite titulo"
+                        type="text" />
+                  <hr>
+                 <button class="btn btn-success" type="button" (click)="openModalMecanico()">Buscar</button>
+                
+                </div>
+                
+            </div>
+
+
+
+            <div class="row botonesayuda">
+                <div class="col-sm-12">
+                        <button class="btn btn-success mr-3"(click)="update()" >ACTUALIZAR</button>
+                        <button class="btn btn-secondary mr-3" routerLink="/missolicitudes">VOLVER</button>
+                </div>
+            </div>
+        </div>
+
+
+        </div>
+    </div>
+</div>
+</div>

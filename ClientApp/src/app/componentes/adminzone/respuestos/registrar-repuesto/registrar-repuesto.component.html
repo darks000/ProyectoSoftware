@@ -1,0 +1,74 @@
+<div class="panel panel-primary"
+style="width: auto; margin:auto; margin-top: auto; background-color: rgba(255, 255, 255, 0.8)">
+<div class="panel-heading" style="background-color: lightblue;color: white;">Agregar Repuesto</div>
+<div class="panel-body">
+    <div class="row separar">
+        <div class="col-sm-12">
+            <hr class="bg-info">
+            <div class="alert alert-warning">
+                <strong>¡Alerta!</strong> Todos los campos son obligatorios!
+            </div>
+
+            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+            <div class="row separar">
+                <div class="col-sm-2">
+                    <label>Codigo Repuesto:</label>
+                </div>
+
+                <div class="col-sm-4">
+                        <input type="text" formControlName="codigoRepuesto" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.codigoRepuesto.errors }" />
+                        <div *ngIf="submitted && f.codigoRepuesto.errors" class="invalid-feedback">
+                        <div *ngIf="f.codigoRepuesto.errors.required">El codigo Repuesto es obligatorio</div>
+                        </div>
+                </div>
+
+                <div class="col-sm-2">
+                    <label>Nombre Repuesto:</label>
+                </div>
+
+                <div class="col-sm-4">
+                        <input type="text" formControlName="nombrRepuesto" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nombrRepuesto.errors }" />
+                        <div *ngIf="submitted && f.nombrRepuesto.errors" class="invalid-feedback">
+                        <div *ngIf="f.nombrRepuesto.errors.required">El nombre es obligatorio</div>
+                        </div>
+                </div>
+                
+            </div>
+
+            <div class="row separar">
+                <div class="col-sm-2">
+                    <label>Descripcion Repuesto:</label>
+                </div>
+                <div class="col-sm-4">
+                    <textarea formControlName="descripcionRepuesto" rows="5" cols="40" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.descripcionRepuesto.errors }"></textarea>
+                    <div *ngIf="submitted && f.descripcionRepuesto.errors" class="invalid-feedback">
+                      <div *ngIf="f.descripcionRepuesto.errors.required">Las descripciones son requeridas</div>
+                    </div>
+                </div>
+
+                <div class="col-sm-2">
+                    <label>Valor Repuesto:</label>
+                </div>
+
+                <div class="col-sm-4">
+                    <input type="number" formControlName="valorRepuesto" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.valorRepuesto.errors }" />
+                    <div *ngIf="submitted && f.valorRepuesto.errors" class="invalid-feedback">
+                      <div *ngIf="f.valorRepuesto.errors.required">El valor es obligatorio</div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="row botonesayuda">
+                <div class="col-sm-12">
+                        <button class="btn btn-success mr-1" >Registrar</button>
+                        <button class="btn btn-secondary" type="reset" (click)="onReset()">Limpiar</button>
+                </div>
+            </div>
+
+        </form>
+
+        </div>
+    </div>
+</div>
+</div>

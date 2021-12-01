@@ -1,0 +1,60 @@
+<div class="panel panel-primary"
+        style="width: auto; margin:auto; margin-top: auto; background-color: rgba(255, 255, 255, 0.8);">
+        <div class="panel-heading" style="background-color:lightblue; color: white;">Mis Servicios</div>
+        <div class="panel-body">
+            <div class="row separar">
+                <div class="col-sm-12">
+                    <hr class="bg-info">
+                    <div class="alert alert-info">
+                        <strong>¡Informacion!</strong> ¡Sin novedades!
+                    </div>
+        <!--TABLA-->
+        <div style="overflow-x:auto;">
+            <div class="row separar">
+                <div class="col-sm-2">
+                    <label>TIPO DE SERVICIO:</label>
+                </div>
+                <div class="col-10">
+                    <select [(ngModel)]="searchText" class="form-control">
+                        <option value="">SELECCIONE</option>
+                        <option value="MECANICA BASICA">MECÁNICA BASICA</option>
+                        <option value="MECANICA ESPECIALIZADA">MECÁNICA ESPECIALIZADA</option>
+                        <option value="REVISIONES AUTOMOTRIZ">REVISIONES AUTOMOTRIZ</option>
+                        <option value="ESTETICA AUTOMOTRIZ">ESTÉTICA AUTOMOTRIZ</option>
+                        <option value="A DOMICILIO">A DOMICILIO</option>
+                    </select>
+                </div>
+            </div>
+        <table class='table table-striped' *ngIf='servicios && servicios.length'>
+            <thead>
+                <tr>
+                <tr>
+                    <th>#</th>           
+                    <th>TIPO DE SERVICIO</th>
+                    <th>VALOR DE SERVICIO</th>
+                    <th>GESTIONAR</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let servicio of servicios | filtroServicios:searchText; index as i" (click)="seleccionar(servicio)">                
+                <th scope="row">{{ i + 1 }}</th>
+                <td>{{servicio.tipoServicio}}</td>
+                <td>{{servicio.valor}}</td>
+                <td><button type="button" class="btn btn-danger" routerLink="/gestionServicios/{{servicio.tipoServicio}}">Gestionar</button></td>
+            </tr>
+        </tbody>
+        </table>
+        </div>
+
+        <div class="row botonesayuda">
+                <div class="col-sm-12">
+                        <button class="btn btn-success mr-1" (click)="open()" >Nuevo Servicio</button>
+                        <button class="btn btn-warning mr-1" (click)="getAll()" >Actualizar</button>
+                </div>
+        </div>
+    
+
+    </div>
+    </div>
+    </div>
+</div>

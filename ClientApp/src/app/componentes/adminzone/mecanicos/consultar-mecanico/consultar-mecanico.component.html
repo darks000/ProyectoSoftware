@@ -1,0 +1,59 @@
+<div class="panel panel-primary"
+        style="width: auto; margin:auto; margin-top: auto; background-color: rgba(255, 255, 255, 0.8);">
+        <div class="panel-heading" style="background-color:lightblue; color: white;">Mis Mecanicos</div>
+        <div class="panel-body">
+            <div class="row separar">
+                <div class="col-sm-12">
+                    <hr class="bg-info">
+                    <div class="alert alert-info">
+                        <strong>¡Informacion!</strong> ¡Sin novedades!
+                    </div>
+        <!--TABLA-->
+        <div style="overflow-x:auto;">
+            <div class="row separar">
+                <div class="col-sm-2">
+                    <label>Busqueda:</label>
+                </div>
+                <div class="col-10">
+                    <input [(ngModel)]="searchText" type="text" class="form-control" placeholder="Consultar por Identificacion,nombre o apellido">
+                </div>
+            </div>
+        <table class='table table-striped' *ngIf='mecanicos && mecanicos.length'>
+            <thead>
+                <tr>
+                <tr>
+                    <th>#</th>           
+                    <th>Identificacion</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Experiencia Laboral</th>
+                    <th>Especialidad</th>
+                    <th>Gestion</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let mecanico of mecanicos | filtroMecanicos:searchText; index as i" (click)="seleccionar(mecanico)">                
+                <th scope="row">{{ i + 1 }}</th>
+                <td>{{mecanico.identificacion}}</td>
+                <td>{{mecanico.nombre}}</td>
+                <td>{{mecanico.apellido}}</td>
+                <td>{{mecanico.experienciaLaboral}}</td>
+                <td>{{mecanico.especialidad}}</td>
+                <td><button type="button" class="btn btn-danger" routerLink="/gestionMecanicos/{{mecanico.identificacion}}">Gestionar</button></td>
+            </tr>
+        </tbody>
+        </table>
+        </div>
+
+        <div class="row botonesayuda">
+                <div class="col-sm-12">
+                        <button class="btn btn-success mr-1" (click)="open()" >Nuevo Mecanico</button>
+                        <button class="btn btn-warning mr-1" (click)="getAll()" >Actualizar</button>
+                </div>
+        </div>
+    
+
+    </div>
+    </div>
+    </div>
+</div>

@@ -1,0 +1,79 @@
+<div class="panel panel-primary"
+        style="width: auto; margin:auto; margin-top: auto; background-color: rgba(255, 255, 255, 0.8);">
+        <div class="panel-heading" style="background-color:lightblue; color: white;">Mis Solicitudes</div>
+        <div class="panel-body">
+            <div class="row separar">
+                <div class="col-sm-12">
+                    <hr class="bg-info">
+                    <div class="alert alert-info">
+                        <strong>¡Informacion!</strong> ¡Sin novedades!
+                    </div>
+        <!--TABLA-->
+        <div style="overflow-x:auto;">
+            <div class="row separar">
+                <div class="col-sm-2">
+                    <label>CONSULTAR:</label>
+                </div>
+                <div class="col-4">
+                    <input [(ngModel)]="searchText" type="text" class="form-control" placeholder="Consultar por Codigo,Placa,Mecanico,Propietario">
+                </div>
+                <div class="col-sm-2">
+                    <label>ESTADOS:</label>
+                </div>
+                <div class="col-4">
+                    <select [(ngModel)]="searchText" class="form-control">
+                        <option value="">SELECCIONE</option>
+                        <option value="EN COTIZACION">EN COTIZACION</option>
+                        <option value="COTIZACION AJUSTADA">COTIZACION AJUSTADA</option>
+                        <option value="COTIZACION CANCELADA">COTIZACION CANCELADA</option>
+                        <option value="EN MANTENIMIENTO">EN MANTENIMIENTO</option>
+                        <option value="SOLICITUD FINALIZADA">SOLICITUD FINALIZADA</option>
+                    </select>
+                </div>
+            </div>
+        <table class='table table-striped' *ngIf='cotizaciones && cotizaciones.length'>
+            <thead>
+                <tr>
+                <tr>
+                    <th>#</th>           
+                    <th>Codigo Cotizacion</th>
+                    <th>Codigo Propietario</th>
+                    <th>Placa Vehiculo</th>
+                    <th>Valor Aproximado</th>
+                    <th>Valor Final</th>
+                    <th>Mecanico</th>
+                    <th>Comentario</th>
+                    <th>Estado</th>
+                    <th>Detalles</th>
+                    <th>Gestion</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let cotizacion of cotizaciones | filtroSolicitudes:searchText; index as i">                
+                <th scope="row">{{ i + 1 }}</th>
+                <td>{{cotizacion.codigoCotizacion}}</td>
+                <td>{{cotizacion.codigoPropietario}}</td>
+                <td>{{cotizacion.placaVehiculo}}</td>
+                <td>{{cotizacion.valorAproximado}}</td>
+                <td>{{cotizacion.valorFinal}}</td>
+                <td>{{cotizacion.idMecanico}}</td>
+                <td>{{cotizacion.comentario}}</td>
+                <th style="color: rgb(13, 99, 148);">{{cotizacion.estado}}</th>
+                <td><button type="button" class="btn btn-success" routerLink="/detallesSolicitud/{{cotizacion.codigoCotizacion}}">Ver</button></td>
+                <td><button type="button" class="btn btn-warning" routerLink="/gestionSolicitud/{{cotizacion.codigoCotizacion}}">Gestionar</button></td>
+            </tr>
+        </tbody>
+        </table>
+        </div>
+
+        <div class="row botonesayuda">
+                <div class="col-sm-12">
+                        <button class="btn btn-warning mr-1" (click)="getAll()" >Actualizar</button>
+                </div>
+        </div>
+    
+
+    </div>
+    </div>
+    </div>
+</div>

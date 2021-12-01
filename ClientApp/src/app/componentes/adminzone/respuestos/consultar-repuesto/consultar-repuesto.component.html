@@ -1,0 +1,57 @@
+<div class="panel panel-primary"
+        style="width: auto; margin:auto; margin-top: auto; background-color: rgba(255, 255, 255, 0.8);">
+        <div class="panel-heading" style="background-color:lightblue; color: white;">Mis Repuestos</div>
+        <div class="panel-body">
+            <div class="row separar">
+                <div class="col-sm-12">
+                    <hr class="bg-info">
+                    <div class="alert alert-info">
+                        <strong>¡Informacion!</strong> ¡Sin novedades!
+                    </div>
+        <!--TABLA-->
+        <div style="overflow-x:auto;">
+            <div class="row separar">
+                <div class="col-sm-2">
+                    <label>Busqueda:</label>
+                </div>
+                <div class="col-10">
+                    <input [(ngModel)]="searchText" type="text" class="form-control" placeholder="Consultar por codigo o nombre">
+                </div>
+            </div>
+        <table class='table table-striped' *ngIf='repuestos && repuestos.length'>
+            <thead>
+                <tr>
+                <tr>
+                    <th>#</th>           
+                    <th>Codigo</th>
+                    <th>Nombre</th>
+                    <th>Descripcion</th>
+                    <th>Valor</th>
+                    <th>Gestion</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let repuesto of repuestos | filtroRepuestos:searchText; index as i">                
+                <th scope="row">{{ i + 1 }}</th>
+                <td>{{repuesto.codigoRepuesto}}</td>
+                <td>{{repuesto.nombrRepuesto}}</td>
+                <td>{{repuesto.descripcionRepuesto}}</td>
+                <td>{{repuesto.valorRepuesto}}</td>
+                <td><button type="button" class="btn btn-danger" routerLink="/gestionRepuestos/{{repuesto.codigoRepuesto}}">Gestionar</button></td>
+            </tr>
+        </tbody>
+        </table>
+        </div>
+
+        <div class="row botonesayuda">
+                <div class="col-sm-12">
+                        <button class="btn btn-success mr-1" (click)="open()" >Nuevo Repuesto</button>
+                        <button class="btn btn-warning mr-1" (click)="getAll()" >Actualizar</button>
+                </div>
+        </div>
+    
+
+    </div>
+    </div>
+    </div>
+</div>

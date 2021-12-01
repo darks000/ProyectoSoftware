@@ -1,0 +1,27 @@
+<!--TABLA-->
+<div style="overflow-x:auto;">
+    <table class='table table-striped' *ngIf='detalleCotizaciones && detalleCotizaciones.length'>
+        <thead>
+            <tr>
+            <tr>
+                <th>#</th>           
+                <th>TIPO DE SERVICIO</th>
+                <th>VALOR DE SERVICIO</th>
+                <th>DESCRIPCION</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let detalleCotizacion of detalleCotizaciones | filtroDetalles:searchText; index as i">                
+                <th scope="row">{{ i + 1 }}</th>
+                <td>{{detalleCotizacion.codigoServicio}}</td>
+                <td>{{detalleCotizacion.valorServicio}}</td>
+                <td>{{detalleCotizacion.descripcion}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="row botonesayuda">
+    <div class="col-sm-12">
+        <button class="btn btn-secondary mr-3" routerLink="/missolicitudes">Volver</button>
+    </div>
+</div>        

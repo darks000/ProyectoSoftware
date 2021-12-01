@@ -1,0 +1,56 @@
+<div class="panel panel-primary"
+        style="width: auto; margin:auto; margin-top: auto; background-color: rgba(255, 255, 255, 0.8);">
+        <div class="panel-heading" style="background-color:lightblue; color: white;">Mis Vehiculos</div>
+        <div class="panel-body">
+            <div class="row separar">
+                <div class="col-sm-12">
+                    <hr class="bg-info">
+                    <div class="alert alert-info">
+                        <strong>¡Informacion!</strong> ¡Sin novedades!
+                    </div>
+        <!--TABLA-->
+        <div style="overflow-x:auto;">
+            <div class="row separar">
+                <div class="col-10">
+                    <input [(ngModel)]="searchText" type="text" style="visibility:hidden" class="form-control" placeholder="a">
+                </div>
+            </div>
+        <table class='table table-striped' *ngIf='vehiculos && vehiculos.length'>
+            <thead>
+                <tr>
+                <tr>
+                    <th>#</th>           
+                    <th>Placa</th>
+                    <th>Modelo</th>
+                    <th>Año</th>
+                    <th>Color</th>
+                    <th>Cilindraje</th>
+                    <th>Gestion</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let vehiculo of vehiculos | filtroMisVehiculos:searchText; index as i" (click)="seleccionar(vehiculo)">                
+                <th scope="row">{{ i + 1 }}</th>
+                <td>{{vehiculo.placa}}</td>
+                <td>{{vehiculo.modelo}}</td>
+                <td>{{vehiculo.year}}</td>
+                <td>{{vehiculo.color}}</td>
+                <td>{{vehiculo.cilindraje}}</td>
+                <td><button type="button" class="btn btn-danger" routerLink="/gestionVehiculos/{{vehiculo.placa}}">Gestionar</button></td>
+            </tr>
+        </tbody>
+        </table>
+        </div>
+
+        <div class="row botonesayuda">
+                <div class="col-sm-12">
+                        <button class="btn btn-success mr-1" (click)="open()" >Nuevo Vehiculo</button>
+                        <button class="btn btn-warning mr-1" (click)="getAll()" >Actualizar</button>
+                </div>
+        </div>
+    
+
+    </div>
+    </div>
+    </div>
+</div>

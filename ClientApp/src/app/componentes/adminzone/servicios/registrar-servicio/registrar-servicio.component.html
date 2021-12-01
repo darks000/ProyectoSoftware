@@ -1,0 +1,77 @@
+<div class="panel panel-primary"
+style="width: auto; margin:auto; margin-top: auto; background-color: rgba(255, 255, 255, 0.8)">
+<div class="panel-heading" style="background-color: lightblue;color: white;">Agregar Servicio</div>
+<div class="panel-body">
+    <div class="row separar">
+        <div class="col-sm-12">
+            <hr class="bg-info">
+            <div class="alert alert-warning">
+                <strong>¡Alerta!</strong> Todos los campos son obligatorios!
+            </div>
+
+            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+            <div class="row separar">
+                <div class="col-sm-2">
+                    <label>Tipo Servicio:</label>
+                </div>
+
+                <div class="col-sm-4">
+                        <input type="text" formControlName="tipoServicio" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.tipoServicio.errors }" />
+                        <div *ngIf="submitted && f.tipoServicio.errors" class="invalid-feedback">
+                        <div *ngIf="f.tipoServicio.errors.required">El tipo servicio es obligatorio</div>
+                        </div>
+                </div>
+
+                <div class="col-sm-2">
+                    <label>URL Imagen:</label>
+                </div>
+
+                <div class="col-sm-4">
+                        <input type="text" formControlName="imagenServicio" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.imagenServicio.errors }" />
+                        <div *ngIf="submitted && f.imagenServicio.errors" class="invalid-feedback">
+                        <div *ngIf="f.imagenServicio.errors.required">La URL es obligatoria</div>
+                        </div>
+                </div>
+                
+            </div>
+
+            <div class="row separar">
+                <div class="col-sm-2">
+                    <label>Categoria:</label>
+                </div>
+                <div class="col-sm-4">
+                    <select formControlName="categoria" class="form-control">
+                        <option value="MECANICA BASICA">MECÁNICA BASICA</option>
+                        <option value="MECANICA ESPECIALIZADA">MECÁNICA ESPECIALIZADA</option>
+                        <option value="REVISIONES AUTOMOTRIZ">REVISIONES AUTOMOTRIZ</option>
+                        <option value="ESTETICA AUTOMOTRIZ">ESTÉTICA AUTOMOTRIZ</option>
+                        <option value="A DOMICILIO">A DOMICILIO</option>
+                    </select>
+                </div>
+
+                <div class="col-sm-2">
+                    <label>Valor aproximado:</label>
+                </div>
+
+                <div class="col-sm-4">
+                    <input type="number" formControlName="valor" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.valor.errors }" />
+                    <div *ngIf="submitted && f.valor.errors" class="invalid-feedback">
+                      <div *ngIf="f.valor.errors.required">El valor es obligatorio</div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="row botonesayuda">
+                <div class="col-sm-12">
+                        <button class="btn btn-success mr-1" >Registrar</button>
+                        <button class="btn btn-secondary" type="reset" (click)="onReset()">Limpiar</button>
+                </div>
+            </div>
+
+        </form>
+
+        </div>
+    </div>
+</div>
+</div>

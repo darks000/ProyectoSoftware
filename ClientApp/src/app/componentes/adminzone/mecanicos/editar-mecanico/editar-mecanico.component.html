@@ -1,0 +1,76 @@
+
+<div class="panel panel-primary"
+style="width: auto; margin:auto; margin-top: auto; background-color: rgba(255, 255, 255, 0.8)">
+<div class="panel-heading" style="background-color: lightblue;color: white;">Gestion de Mecanicos</div>
+<div class="panel-body">
+        <div *ngIf="mecanico">  
+    <div class="row separar">
+        <div class="col-sm-12">
+            <hr class="bg-info">          
+            <div class="row separar">
+                <div class="col-sm-2">
+                    <label>Identificacion:</label>
+                </div>
+                <div class="col-sm-10">
+                        <input [(ngModel)]="mecanico.identificacion" readonly="readonly" class="form-control" placeholder="digite identificacion"
+                        type="text" />
+                </div>
+
+            </div>
+            <div class="row separar">
+
+                <div class="col-sm-2">
+                    <label>Nombre:</label>
+                </div>
+
+                <div class="col-sm-4">
+                        <input [(ngModel)]="mecanico.nombre" class="form-control" placeholder="digite nombre"
+                        type="text" />
+                </div>
+
+                <div class="col-sm-2">
+                    <label>Apellido:</label>
+                </div>
+
+                <div class="col-sm-4">
+                        <input [(ngModel)]="mecanico.apellido" class="form-control" placeholder="digite apellido"
+                        type="text" />
+                </div>
+
+            </div>
+            <div class="row separar">
+
+                    <div class="col-sm-2">
+                        <label>Experiencia Laboral:</label>
+                    </div>
+
+                    <div class="col-sm-4">
+                            <input [(ngModel)]="mecanico.experienciaLaboral" class="form-control" placeholder="digite experienciaLaboral"
+                            type="text" />
+                    </div>
+
+                    <div class="col-sm-2">
+                        <label>Especialidad:</label>
+                    </div>
+
+                    <div class="col-sm-4">
+                            <input [(ngModel)]="mecanico.especialidad" class="form-control" placeholder="digite Especialidad"
+                            type="text" />
+                    </div>
+
+            </div>
+
+            <div class="row botonesayuda">
+                <div class="col-sm-12">
+                        <button class="btn btn-success mr-1" (click)="update()" >Actualizar</button>
+                        <button class="btn btn-danger mr-1" routerLink="/mecanicos" (click)="delete()" >Eliminar</button>
+                        <button class="btn btn-secondary" routerLink="/mecanicos">Volver</button>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    </div>
+</div>
+</div>

@@ -1,0 +1,58 @@
+<div class="panel panel-primary"
+        style="width: auto; margin:auto; margin-top: auto; background-color: rgba(255, 255, 255, 0.8);">
+        <div class="panel-heading" style="background-color:lightblue; color: white;">Mis Cotizaciones</div>
+        <div class="panel-body">
+            <div class="row separar">
+                <div class="col-sm-12">
+                    <hr class="bg-info">
+                    <div class="alert alert-info">
+                        <strong>¡Informacion!</strong> ¡Sin novedades!
+                    </div>
+        <!--TABLA-->
+        <div style="overflow-x:auto;">
+            <div class="row separar">
+                <div class="col-10">
+                    <input [(ngModel)]="searchText" type="text" style="visibility:hidden" class="form-control" placeholder="a">
+                </div>
+            </div>
+        <table class='table table-striped' *ngIf='cotizaciones && cotizaciones.length'>
+            <thead>
+                <tr>
+                <tr>
+                    <th>#</th>           
+                    <th>Codigo Cotizacion</th>
+                    <th>Placa Vehiculo</th>
+                    <th>Valor Aproximado</th>
+                    <th>Valor Final</th>
+                    <th>Mecanico</th>
+                    <th>Comentario</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let cotizacion of cotizaciones | filtroCotizacion:searchText; index as i">                
+                <th scope="row">{{ i + 1 }}</th>
+                <td>{{cotizacion.codigoCotizacion}}</td>
+                <td>{{cotizacion.placaVehiculo}}</td>
+                <td>{{cotizacion.valorAproximado}}</td>
+                <td>{{cotizacion.valorFinal}}</td>
+                <td>{{cotizacion.idMecanico}}</td>
+                <td>{{cotizacion.comentario}}</td>
+                <th style="color: rgb(13, 99, 148);">{{cotizacion.estado}}</th>
+            </tr>
+        </tbody>
+        </table>
+        </div>
+
+        <div class="row botonesayuda">
+                <div class="col-sm-12">
+                        <button class="btn btn-success mr-1" (click)="open()" >Nueva Cotizacion</button>
+                        <button class="btn btn-warning mr-1" (click)="getAll()" >Actualizar</button>
+                </div>
+        </div>
+    
+
+    </div>
+    </div>
+    </div>
+</div>

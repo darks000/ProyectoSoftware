@@ -1,0 +1,86 @@
+<div class="panel panel-primary"
+style="width: auto; margin:auto; margin-top: auto; background-color: rgba(255, 255, 255, 0.8)">
+<div class="panel-heading" style="background-color: lightblue;color: white;">Agregar Vehiculo</div>
+<div class="panel-body">
+    <div class="row separar">
+        <div class="col-sm-12">
+            <hr class="bg-info">
+            <div class="alert alert-warning">
+                <strong>¡Alerta!</strong> Todos los campos son obligatorios!
+            </div>
+
+            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+            <div class="row separar">
+                <div class="col-sm-2">
+                    <label>Placa:</label>
+                </div>
+
+                <div class="col-sm-10">
+                        <input type="text" formControlName="placa" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.placa.errors }" />
+                        <div *ngIf="submitted && f.placa.errors" class="invalid-feedback">
+                        <div *ngIf="f.placa.errors.required">La placa es obligatoria</div>
+                        </div>
+                </div>
+            </div>
+
+            <div class="row separar">
+                <div class="col-sm-2">
+                    <label>Modelo:</label>
+                </div>
+
+                <div class="col-sm-4">
+                        <input type="text" formControlName="modelo" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.modelo.errors }" />
+                        <div *ngIf="submitted && f.modelo.errors" class="invalid-feedback">
+                        <div *ngIf="f.modelo.errors.required">El modelo es obligatorio</div>
+                        </div>
+                </div>
+
+                <div class="col-sm-2">
+                    <label>Año:</label>
+                </div>
+
+                <div class="col-sm-4">
+                        <input type="text" formControlName="year" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.year.errors }" />
+                        <div *ngIf="submitted && f.year.errors" class="invalid-feedback">
+                        <div *ngIf="f.year.errors.required">El año es obligatorio</div>
+                        </div>
+                </div>
+                
+            </div>
+
+            <div class="row separar">
+                <div class="col-sm-2">
+                    <label>Color:</label>
+                </div>
+                <div class="col-sm-4">
+                    <input type="text" formControlName="color" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.color.errors }" />
+                    <div *ngIf="submitted && f.color.errors" class="invalid-feedback">
+                      <div *ngIf="f.color.errors.required">El color es obligatorio</div>
+                    </div>
+                </div>
+
+                <div class="col-sm-2">
+                    <label>Cilindraje:</label>
+                </div>
+
+                <div class="col-sm-4">
+                    <input type="text" formControlName="cilindraje" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.cilindraje.errors }" />
+                    <div *ngIf="submitted && f.cilindraje.errors" class="invalid-feedback">
+                      <div *ngIf="f.cilindraje.errors.required">El cilindraje es obligatorio</div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="row botonesayuda">
+                <div class="col-sm-12">
+                        <button class="btn btn-success mr-1" >REGISTRAR</button>
+                </div>
+            </div>
+
+        </form>
+
+        </div>
+    </div>
+</div>
+</div>

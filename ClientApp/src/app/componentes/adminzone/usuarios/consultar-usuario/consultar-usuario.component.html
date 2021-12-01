@@ -1,0 +1,64 @@
+<div class="panel panel-primary"
+        style="width: auto; margin:auto; margin-top: auto; background-color: rgba(255, 255, 255, 0.8);">
+        <div class="panel-heading" style="background-color:lightblue; color: white;">Mis Usuarios</div>
+        <div class="panel-body">
+            <div class="row separar">
+                <div class="col-sm-12">
+                    <hr class="bg-info">
+                    <div class="alert alert-info">
+                        <strong>¡Informacion!</strong> ¡Sin novedades!
+                    </div>
+        <!--TABLA-->
+        <div style="overflow-x:auto;">
+            <div class="row separar">
+                <div class="col-sm-2">
+                    <label>CONSULTAR USUARIO:</label>
+                </div>
+                <div class="col-10">
+                    <input [(ngModel)]="searchText" type="text" class="form-control" placeholder="Consultar por identificacion, nombre o apellido">
+                </div>
+            </div>
+        <table class='table table-striped' *ngIf='usuarios && usuarios.length'>
+            <thead>
+                <tr>
+                <tr>
+                    <th>#</th>           
+                    <th>Identificacion</th>
+                    <th>Email</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Telefono</th>
+                    <th>Sexo</th>
+                    <th>Direccion</th>
+                    <th>Rol</th>
+                    <th>Gestionar</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let usuario of usuarios | filtroUsuarios:searchText; index as i">                
+                <th scope="row">{{ i + 1 }}</th>
+                <td>{{usuario.identificacion}}</td>
+                <td>{{usuario.email}}</td>
+                <td>{{usuario.nombre}}</td>
+                <td>{{usuario.apellido}}</td>
+                <td>{{usuario.telefono}}</td>
+                <td>{{usuario.sexo}}</td>
+                <td>{{usuario.direccion}}</td>
+                <th style="color: rgb(13, 99, 148);">{{usuario.rol}}</th>
+                <td><button type="button" class="btn btn-warning" routerLink="/gestionUsuario/{{usuario.identificacion}}">Cambiar Rol</button></td>
+            </tr>
+        </tbody>
+        </table>
+        </div>
+
+        <div class="row botonesayuda">
+                <div class="col-sm-12">
+                    <button class="btn btn-warning mr-1" (click)="getAll()" >Actualizar</button>
+                </div>
+        </div>
+    
+
+    </div>
+    </div>
+    </div>
+</div>
